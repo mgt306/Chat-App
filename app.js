@@ -1,3 +1,5 @@
+import React from 'react';import logo from './logo.svg';import './App.scss';import socketClient  from "socket.io-client";
+const SERVER = "http://127.0.0.1:8080";
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -39,3 +41,23 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+function App() {
+  var socket = socketClient (SERVER);
+  return (
+    <div>
+      <div className='App'></div>
+        <header className='App-header'></header>
+          <img src='{logo}' className='App-logo' alt='logo'></img>
+          <p></p>
+          Edit <code>src/app.js</code> and save to reload.
+          <p></p>
+            className='App-link'
+            href='https://reactjs.org'
+            target='_blank'
+            rel='noopener noreferrer'
+
+            Learn React
+    </div>
+  ); 
+}
+export default App
